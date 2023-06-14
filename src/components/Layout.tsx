@@ -19,7 +19,6 @@ const Layout = ({
 			<div className={inter.className}>
 				<Header />
 				<main>{children}</main>
-				<Loader />
 			</div>
 		</>
 	);

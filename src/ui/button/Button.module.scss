@@ -1,0 +1,30 @@
+.root {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	flex-shrink: 0;
+	width: 100%;
+	font-weight: 600;
+	font-size: 16px;
+	line-height: 19px;
+	border-radius: 6px;
+	padding: 0 16px;
+	height: 40px;
+	transition: opacity 0.2s ease-in-out;
+
+	&.fill {
+		color: #fff;
+		background-color: #296ead;
+	}
+
+	&.outline {
+		border: 1px solid #296ead;
+		color: #296ead;
+	}
+
+	&.disabled {
+		opacity: 0.7;
+		cursor: not-allowed;
+	}
+}

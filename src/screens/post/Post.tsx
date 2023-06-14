@@ -7,7 +7,6 @@ import { useQuery } from "@tanstack/react-query";
 import { useRouter } from "next/router";
 import { PostService } from "@/src/services/post.service";
 import QueryLog from "@/src/components/query-log/QueryLog";
-import Loader from "@/src/components/loader/Loader";
 
 const Post = () => {
 	const { query } = useRouter();
@@ -24,7 +23,7 @@ const Post = () => {
 		<Layout title="Пост">
 			<Container>
 				{isLoading ? (
-					<Loader />
+					<div>Loader...</div>
 				) : (
 					<>
 						<QueryLog queryCount={queryCount} totalTime={totalTime} />

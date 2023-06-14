@@ -1,5 +1,4 @@
 import Layout from "@/src/components/Layout";
-import Loader from "@/src/components/loader/Loader";
 import PostsList from "@/src/components/posts-list/PostsList";
 import QueryLog from "@/src/components/query-log/QueryLog";
 import { PostService } from "@/src/services/post.service";
@@ -20,7 +19,7 @@ const Blog = () => {
 			<Container>
 				<Heading>Блог</Heading>
 				{isLoading ? (
-					<Loader />
+					<div>Loader...</div>
 				) : (
 					<>
 						<QueryLog queryCount={queryCount} totalTime={totalTime} />

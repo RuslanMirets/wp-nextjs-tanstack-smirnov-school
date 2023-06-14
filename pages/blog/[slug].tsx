@@ -6,12 +6,12 @@ import { GetServerSideProps, GetServerSidePropsContext } from "next";
 
 export const getServerSideProps: GetServerSideProps = withCSR(
 	async (context: GetServerSidePropsContext) => {
-		const { slug } = context.params!;
+		const slug = context.params?.slug as string;
 
 		const queryClient = new QueryClient();
 
 		await queryClient.fetchQuery(["post", slug], () =>
-			PostService.getBySlug(slug as string),
+			PostService.getBySlug(slug),
 		);
 
 		return {

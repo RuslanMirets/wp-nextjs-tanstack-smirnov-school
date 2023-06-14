@@ -20,7 +20,7 @@ const Post = () => {
 	const totalTime = data?.extensions.queryLog.totalTime;
 
 	return (
-		<Layout title="Пост">
+		<Layout title={post?.title || ""}>
 			<Container>
 				{isLoading ? (
 					<div>Loader...</div>

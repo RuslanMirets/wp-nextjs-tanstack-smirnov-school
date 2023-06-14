@@ -1,5 +1,4 @@
 import { fetchData } from "../api/wp-api";
-import { IPost, IPostPreview } from "../types/post.interface";
 
 export const PostService = {
 	async getAll() {

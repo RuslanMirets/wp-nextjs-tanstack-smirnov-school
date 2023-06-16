@@ -9,6 +9,7 @@ import { Button } from "@chakra-ui/react";
 interface IMenuLinks {
 	title: string;
 	url: string;
+	target?: "_blank" | "_parent" | "_self" | "_top";
 }
 
 const menuLinks: IMenuLinks[] = [
@@ -16,6 +17,7 @@ const menuLinks: IMenuLinks[] = [
 	{ title: "Блог", url: "/blog" },
 	{ title: "Основы CG", url: "/cgb" },
 	{ title: "Товары", url: "/products" },
+	{ title: "Метрики", url: "/metrics", target: "_blank" },
 ];
 
 const Header = () => {
@@ -33,6 +35,7 @@ const Header = () => {
 									<Link
 										className={clsx(pathname === item.url && styles.active)}
 										href={item.url}
+										target={item.target}
 									>
 										{item.title}
 									</Link>

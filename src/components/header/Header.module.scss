@@ -5,14 +5,17 @@
 }
 .container {
 	display: flex;
-	justify-content: center;
+	justify-content: space-between;
 	align-items: center;
+	flex-wrap: wrap;
 	min-height: 60px;
+	padding: 10px 0;
+	gap: 16px;
 }
 .navList {
 	display: flex;
 	flex-wrap: wrap;
-	gap: 16px;
+	gap: 0px 16px;
 
 	li {
 		font-size: 18px;
@@ -26,6 +29,25 @@
 			&.active {
 				color: #fb7185;
 			}
+		}
+	}
+}
+
+.auth {
+	display: flex;
+	align-items: center;
+	gap: 6px 16px;
+	flex-wrap: wrap;
+
+	.user {
+		display: flex;
+		gap: 8px;
+
+		a {
+			font-weight: 700;
+			font-size: 18px;
+			line-height: 26px;
+			text-decoration: underline;
 		}
 	}
 }

@@ -3,6 +3,8 @@ import styles from "./Header.module.scss";
 import { useRouter } from "next/router";
 import clsx from "clsx";
 import Container from "@/src/ui/container/Container";
+import { signOut, useSession } from "next-auth/react";
+import { Button } from "@chakra-ui/react";
 
 interface IMenuLinks {
 	title: string;
@@ -18,6 +20,7 @@ const menuLinks: IMenuLinks[] = [
 
 const Header = () => {
 	const { pathname } = useRouter();
+	const { data, status } = useSession();
 
 	return (
 		<header className={styles.root}>
@@ -37,6 +40,24 @@ const Header = () => {
 							))}
 						</ul>
 					</nav>
+					{status !== "loading" && (
+						<div className={styles.auth}>
+							{data && (
+								<>
+									<div className={styles.user}>
+										Вы вошли как
+										<Link href="/profile">{data?.user?.name}</Link>
+									</div>
+									<Button onClick={() => signOut()}>Выйти</Button>
+								</>
+							)}
+							{!data && (
+								<Link href="/login">
+									<Button>Войти</Button>
+								</Link>
+							)}
+						</div>
+					)}
 				</div>
 			</Container>
 		</header>

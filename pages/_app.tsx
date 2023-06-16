@@ -1,5 +1,6 @@
 import { queryClientConfig } from "@/src/config/query-client.config";
 import "@/styles/globals.scss";
+import { ChakraProvider } from "@chakra-ui/react";
 import {
 	Hydrate,
 	QueryClient,
@@ -15,8 +16,10 @@ export default function App({ Component, pageProps }: AppProps) {
 	return (
 		<QueryClientProvider client={queryClient}>
 			<Hydrate state={pageProps.dehydratedState}>
-				<Component {...pageProps} />
-				<ReactQueryDevtools initialIsOpen={false} />
+				<ChakraProvider>
+					<Component {...pageProps} />
+					<ReactQueryDevtools initialIsOpen={false} />
+				</ChakraProvider>
 			</Hydrate>
 		</QueryClientProvider>
 	);

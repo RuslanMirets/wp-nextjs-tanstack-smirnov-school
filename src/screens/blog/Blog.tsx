@@ -16,8 +16,6 @@ const Blog = () => {
 	const graphqlSmartCache =
 		data?.extensions.graphqlSmartCache.graphqlObjectCache.message;
 
-	console.log(graphqlSmartCache);
-
 	return (
 		<Layout title="Блог">
 			<Container>

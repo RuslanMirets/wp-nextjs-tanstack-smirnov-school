@@ -13,6 +13,8 @@ const CGB = () => {
 	const page: IPage = data?.data.page;
 	const queryCount = data?.extensions.queryLog.queryCount;
 	const totalTime = data?.extensions.queryLog.totalTime;
+	const graphqlSmartCache =
+		data?.extensions.graphqlSmartCache.graphqlObjectCache.message;
 
 	return (
 		<Layout title={page?.title || ""}>
@@ -21,7 +23,11 @@ const CGB = () => {
 					<div>Loading...</div>
 				) : (
 					<>
-						<QueryLog queryCount={queryCount} totalTime={totalTime} />
+						<QueryLog
+							queryCount={queryCount}
+							totalTime={totalTime}
+							graphqlSmartCache={graphqlSmartCache}
+						/>
 						<Heading>{page.title}</Heading>
 						<div className="mb-10">
 							<h2

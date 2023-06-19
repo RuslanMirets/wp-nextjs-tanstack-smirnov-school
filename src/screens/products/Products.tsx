@@ -13,6 +13,8 @@ const Products = () => {
 	const products: IProducts[] = data?.data.products.nodes;
 	const queryCount = data?.extensions.queryLog.queryCount;
 	const totalTime = data?.extensions.queryLog.totalTime;
+	const graphqlSmartCache =
+		data?.extensions.graphqlSmartCache.graphqlObjectCache.message;
 
 	return (
 		<Layout title="Товары">
@@ -22,7 +24,11 @@ const Products = () => {
 					<div>Loading...</div>
 				) : (
 					<>
-						<QueryLog queryCount={queryCount} totalTime={totalTime} />
+						<QueryLog
+							queryCount={queryCount}
+							totalTime={totalTime}
+							graphqlSmartCache={graphqlSmartCache}
+						/>
 						<ul className="mb-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 max-w-xs mx-auto sm:max-w-none">
 							{products.map((product) => (
 								<li key={product.databaseId}>

@@ -3,7 +3,7 @@ import styles from "./QueryLog.module.scss";
 type Props = {
 	queryCount: number;
 	totalTime: number;
-	graphqlSmartCache?: string;
+	graphqlSmartCache: string;
 };
 
 const QueryLog = ({ queryCount, totalTime, graphqlSmartCache }: Props) => {

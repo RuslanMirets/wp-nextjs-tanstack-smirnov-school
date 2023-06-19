@@ -13,6 +13,10 @@ const Blog = () => {
 	const posts: IPostPreview[] = data?.data.posts.nodes;
 	const queryCount = data?.extensions.queryLog.queryCount;
 	const totalTime = data?.extensions.queryLog.totalTime;
+	const graphqlSmartCache =
+		data?.extensions.graphqlSmartCache.graphqlObjectCache.message;
+
+	console.log(graphqlSmartCache);
 
 	return (
 		<Layout title="Блог">
@@ -22,7 +26,11 @@ const Blog = () => {
 					<div>Loader...</div>
 				) : (
 					<>
-						<QueryLog queryCount={queryCount} totalTime={totalTime} />
+						<QueryLog
+							queryCount={queryCount}
+							totalTime={totalTime}
+							graphqlSmartCache={graphqlSmartCache}
+						/>
 						<PostsList posts={posts} />
 					</>
 				)}

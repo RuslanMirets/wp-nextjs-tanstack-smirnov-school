@@ -21,6 +21,7 @@ const Layout = ({
 			<div className={inter.className}>
 				{withHeader && <Header />}
 				<main>{children}</main>
+				<Loader />
 			</div>
 		</>
 	);
